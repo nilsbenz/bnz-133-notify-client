@@ -13,7 +13,7 @@ export class TextArea {
   @Event() handleInput: EventEmitter;
 
   componentWillLoad() {
-    if(!this.name) {
+    if (!this.name) {
       console.error('[nfy-textarea]: textarea name missing');
     }
   }

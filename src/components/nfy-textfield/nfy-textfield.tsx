@@ -15,7 +15,7 @@ export class TextField {
   @Event() handleInput: EventEmitter;
 
   componentWillLoad() {
-    if(!this.name) {
+    if (!this.name) {
       console.error('[nfy-textfield]: input name missing');
     }
   }

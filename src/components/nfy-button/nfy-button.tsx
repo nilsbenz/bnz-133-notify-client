@@ -14,7 +14,7 @@ export class Button {
   render() {
     return (
       <button type={this.type} class={`${this.variant}-${this.color}`}>
-        <slot />
+        <slot/>
       </button>
     );
   }
