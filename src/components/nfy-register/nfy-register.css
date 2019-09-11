@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+nfy-textfield {
+  margin: var(--spacing-1) 0;
+}
+
+nfy-button {
+  align-self: flex-end;
+}

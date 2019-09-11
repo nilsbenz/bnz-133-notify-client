@@ -6,22 +6,20 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-import {
-  MatchResults,
-} from '@stencil/router';
+
 
 export namespace Components {
-  interface AppProfile {
-    'match': MatchResults;
-  }
   interface NfyButton {
     'color': 'default' | 'primary' | 'secondary' | undefined;
     'type': 'button' | 'submit' | undefined;
     'variant': 'text' | 'outlined' | 'contained' | undefined;
   }
   interface NfyContainer {}
+  interface NfyFiles {}
   interface NfyHeader {}
   interface NfyHome {}
+  interface NfyLogin {}
+  interface NfyRegister {}
   interface NfyRoot {}
   interface NfyTextarea {
     'name': string;
@@ -41,12 +39,6 @@ export namespace Components {
 declare global {
 
 
-  interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {}
-  var HTMLAppProfileElement: {
-    prototype: HTMLAppProfileElement;
-    new (): HTMLAppProfileElement;
-  };
-
   interface HTMLNfyButtonElement extends Components.NfyButton, HTMLStencilElement {}
   var HTMLNfyButtonElement: {
     prototype: HTMLNfyButtonElement;
@@ -59,6 +51,12 @@ declare global {
     new (): HTMLNfyContainerElement;
   };
 
+  interface HTMLNfyFilesElement extends Components.NfyFiles, HTMLStencilElement {}
+  var HTMLNfyFilesElement: {
+    prototype: HTMLNfyFilesElement;
+    new (): HTMLNfyFilesElement;
+  };
+
   interface HTMLNfyHeaderElement extends Components.NfyHeader, HTMLStencilElement {}
   var HTMLNfyHeaderElement: {
     prototype: HTMLNfyHeaderElement;
@@ -69,6 +67,18 @@ declare global {
   var HTMLNfyHomeElement: {
     prototype: HTMLNfyHomeElement;
     new (): HTMLNfyHomeElement;
+  };
+
+  interface HTMLNfyLoginElement extends Components.NfyLogin, HTMLStencilElement {}
+  var HTMLNfyLoginElement: {
+    prototype: HTMLNfyLoginElement;
+    new (): HTMLNfyLoginElement;
+  };
+
+  interface HTMLNfyRegisterElement extends Components.NfyRegister, HTMLStencilElement {}
+  var HTMLNfyRegisterElement: {
+    prototype: HTMLNfyRegisterElement;
+    new (): HTMLNfyRegisterElement;
   };
 
   interface HTMLNfyRootElement extends Components.NfyRoot, HTMLStencilElement {}
@@ -95,11 +105,13 @@ declare global {
     new (): HTMLNfyTypographyElement;
   };
   interface HTMLElementTagNameMap {
-    'app-profile': HTMLAppProfileElement;
     'nfy-button': HTMLNfyButtonElement;
     'nfy-container': HTMLNfyContainerElement;
+    'nfy-files': HTMLNfyFilesElement;
     'nfy-header': HTMLNfyHeaderElement;
     'nfy-home': HTMLNfyHomeElement;
+    'nfy-login': HTMLNfyLoginElement;
+    'nfy-register': HTMLNfyRegisterElement;
     'nfy-root': HTMLNfyRootElement;
     'nfy-textarea': HTMLNfyTextareaElement;
     'nfy-textfield': HTMLNfyTextfieldElement;
@@ -108,17 +120,17 @@ declare global {
 }
 
 declare namespace LocalJSX {
-  interface AppProfile extends JSXBase.HTMLAttributes<HTMLAppProfileElement> {
-    'match'?: MatchResults;
-  }
   interface NfyButton extends JSXBase.HTMLAttributes<HTMLNfyButtonElement> {
     'color'?: 'default' | 'primary' | 'secondary' | undefined;
     'type'?: 'button' | 'submit' | undefined;
     'variant'?: 'text' | 'outlined' | 'contained' | undefined;
   }
   interface NfyContainer extends JSXBase.HTMLAttributes<HTMLNfyContainerElement> {}
+  interface NfyFiles extends JSXBase.HTMLAttributes<HTMLNfyFilesElement> {}
   interface NfyHeader extends JSXBase.HTMLAttributes<HTMLNfyHeaderElement> {}
   interface NfyHome extends JSXBase.HTMLAttributes<HTMLNfyHomeElement> {}
+  interface NfyLogin extends JSXBase.HTMLAttributes<HTMLNfyLoginElement> {}
+  interface NfyRegister extends JSXBase.HTMLAttributes<HTMLNfyRegisterElement> {}
   interface NfyRoot extends JSXBase.HTMLAttributes<HTMLNfyRootElement> {}
   interface NfyTextarea extends JSXBase.HTMLAttributes<HTMLNfyTextareaElement> {
     'name'?: string;
@@ -137,11 +149,13 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
-    'app-profile': AppProfile;
     'nfy-button': NfyButton;
     'nfy-container': NfyContainer;
+    'nfy-files': NfyFiles;
     'nfy-header': NfyHeader;
     'nfy-home': NfyHome;
+    'nfy-login': NfyLogin;
+    'nfy-register': NfyRegister;
     'nfy-root': NfyRoot;
     'nfy-textarea': NfyTextarea;
     'nfy-textfield': NfyTextfield;

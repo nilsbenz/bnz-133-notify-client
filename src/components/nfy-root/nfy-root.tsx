@@ -1,4 +1,4 @@
-import { Component, h } from '@stencil/core';
+import {Component, h} from '@stencil/core';
 
 @Component({
   tag: 'nfy-root',
@@ -10,13 +10,15 @@ export class Root {
   render() {
     return (
       <div>
-        <nfy-header />
+        <nfy-header/>
 
         <main>
           <stencil-router>
             <stencil-route-switch scrollTopOffset={0}>
-              <stencil-route url='/' component='nfy-home' exact={true} />
-              <stencil-route url='/profile/:name' component='app-profile' />
+              <stencil-route url='/' component='nfy-home' exact={true}/>
+              <stencil-route url='/files' component='nfy-files'/>
+              <stencil-route url='/login' component='nfy-login'/>
+              <stencil-route url='/register' component='nfy-register'/>
             </stencil-route-switch>
           </stencil-router>
         </main>
