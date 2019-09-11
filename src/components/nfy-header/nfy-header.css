@@ -1,0 +1,41 @@
+header {
+  background-color: var(--primary);
+  display: grid;
+  grid-template-columns: 1fr minmax(600px, 1200px) 1fr;
+  grid-auto-rows: auto;
+  grid-gap: 16px;
+  padding: 16px;
+}
+
+h1 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  font-family: var(--heading-font);
+  margin: 0 0 0 8px;
+  font-size: 4rem;
+  color: var(--primary-contrast);
+}
+
+nav {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+}
+
+button {
+  font-size: 0.875rem;
+  background: none;
+  border: 1px solid transparent;
+  padding: 4px;
+  text-transform: uppercase;
+  border-radius: var(--spacing-0-5);
+  letter-spacing: 0.025rem;
+  line-height: 1.75;
+  font-weight: 500;
+  min-width: 64px;
+  cursor: pointer;
+  margin: var(--spacing-0-5);
+  transition: all var(--time);
+  outline: none;
+  text-decoration: none;
+  color: var(--primary-contrast)
+}
