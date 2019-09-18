@@ -1,4 +1,4 @@
-header {
+header.with-nav {
   background-color: var(--primary);
   display: grid;
   grid-template-columns: 1fr minmax(600px, 1200px) 1fr;
@@ -7,35 +7,35 @@ header {
   padding: 16px;
 }
 
-.title {
+.with-nav .title {
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   display: flex;
   align-items: center;
 }
 
-img {
+.with-nav img {
   display: inline-block;
   height: 5rem;
   width: 5rem;
   margin-right: var(--spacing-1);
 }
 
-h1 {
+.with-nav h1 {
   font-family: var(--heading-font);
   margin: 0 0 0 8px;
   font-size: 4rem;
   color: var(--primary-contrast);
 }
 
-nav {
+.with-nav nav {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   display: flex;
   justify-content: space-between;
 }
 
-button {
+.with-nav button {
   font-size: 0.875rem;
   background: none;
   border: 1px solid transparent;
@@ -53,6 +53,36 @@ button {
   color: var(--primary-contrast)
 }
 
-.active button {
+.with-nav .active button {
   border-bottom: 1px solid var(--primary-contrast);
+}
+
+header.no-nav {
+  background-color: var(--primary);
+  color: var(--primary-contrast);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-nav .flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.no-nav img {
+  width: 6rem;
+  height: 6rem;
+  margin-right: var(--spacing-2);
+}
+
+.no-nav h1 {
+  font-size: 5rem;
+  font-family: HeadingFont;
+}
+
+:-webkit-any-link {
+  text-decoration: inherit;
+  color: inherit;
 }

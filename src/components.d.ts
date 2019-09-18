@@ -6,7 +6,9 @@
 
 
 import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
-
+import {
+  RouterHistory,
+} from '@stencil/router';
 
 export namespace Components {
   interface NfyButton {
@@ -16,10 +18,16 @@ export namespace Components {
   }
   interface NfyContainer {}
   interface NfyFiles {}
-  interface NfyHeader {}
+  interface NfyHeader {
+    'nav': boolean;
+  }
   interface NfyHome {}
-  interface NfyLogin {}
-  interface NfyRegister {}
+  interface NfyLogin {
+    'history': RouterHistory;
+  }
+  interface NfyRegister {
+    'history': RouterHistory;
+  }
   interface NfyRoot {}
   interface NfyTextarea {
     'name': string;
@@ -127,10 +135,19 @@ declare namespace LocalJSX {
   }
   interface NfyContainer extends JSXBase.HTMLAttributes<HTMLNfyContainerElement> {}
   interface NfyFiles extends JSXBase.HTMLAttributes<HTMLNfyFilesElement> {}
-  interface NfyHeader extends JSXBase.HTMLAttributes<HTMLNfyHeaderElement> {}
+  interface NfyHeader extends JSXBase.HTMLAttributes<HTMLNfyHeaderElement> {
+    'nav'?: boolean;
+    'onLoggedOut'?: (event: CustomEvent<any>) => void;
+  }
   interface NfyHome extends JSXBase.HTMLAttributes<HTMLNfyHomeElement> {}
-  interface NfyLogin extends JSXBase.HTMLAttributes<HTMLNfyLoginElement> {}
-  interface NfyRegister extends JSXBase.HTMLAttributes<HTMLNfyRegisterElement> {}
+  interface NfyLogin extends JSXBase.HTMLAttributes<HTMLNfyLoginElement> {
+    'history'?: RouterHistory;
+    'onLoggedIn'?: (event: CustomEvent<any>) => void;
+  }
+  interface NfyRegister extends JSXBase.HTMLAttributes<HTMLNfyRegisterElement> {
+    'history'?: RouterHistory;
+    'onLoggedIn'?: (event: CustomEvent<any>) => void;
+  }
   interface NfyRoot extends JSXBase.HTMLAttributes<HTMLNfyRootElement> {}
   interface NfyTextarea extends JSXBase.HTMLAttributes<HTMLNfyTextareaElement> {
     'name'?: string;

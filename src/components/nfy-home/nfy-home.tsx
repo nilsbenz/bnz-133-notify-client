@@ -1,4 +1,5 @@
 import {Component, h, Listen, State} from '@stencil/core';
+import NotesService from '../../services/notesService';
 
 @Component({
   tag: 'nfy-home',
@@ -11,33 +12,24 @@ export class Home {
   @State() password: string;
   @State() textarea: string;
 
+  @State() notes: any[];
+
+  private notesService: NotesService;
+
+  async componentWillLoad() {
+    this.notesService = new NotesService();
+    this.notes = [];
+    this.notes = await this.notesService.getNotes();
+  }
+
   render() {
     return (
       <div>
         <nfy-container>
-          Dies ist die Homeseite <br/>
-          <nfy-button>Home</nfy-button>
-          <nfy-button variant="outlined">Home</nfy-button>
-          <nfy-button variant="contained">Home</nfy-button>
-          <nfy-button color="primary">Home</nfy-button>
-          <nfy-button color="primary" variant="outlined">Home</nfy-button>
-          <nfy-button color="primary" variant="contained">Home</nfy-button>
-          <nfy-button color="secondary">Home</nfy-button>
-          <nfy-button color="secondary" variant="outlined">Home</nfy-button>
-          <nfy-button color="secondary" variant="contained">Home</nfy-button>
-          <nfy-typography variant="h1">Dies ist ein Test.</nfy-typography>
-          <nfy-typography variant="h2">Dies ist ein Test.</nfy-typography>
-          <nfy-typography variant="h3">Dies ist ein Test.</nfy-typography>
-          <nfy-typography variant="h4">Dies ist ein Test.</nfy-typography>
-          <nfy-typography variant="h5">Dies ist ein Test.</nfy-typography>
-          <nfy-typography variant="h6">Dies ist ein Test.</nfy-typography>
-          <nfy-typography>Dies ist ein Test.</nfy-typography>
-          <form>
-            <nfy-textfield label="Benutzername" name="user" value="test"/>
-            <nfy-textfield type="password" label="Passwort" name="pw"/>
-            <nfy-button type="submit" onClick={() => this.handlesubmit()}>Speichern</nfy-button>
-          </form>
-          <nfy-textarea name="textarea"/>
+          <nfy-typography variant="h1">Notizen</nfy-typography>
+          {this.notes.map(note =>
+            <p>{note.heading}</p>
+          )}
         </nfy-container>
       </div>
     );

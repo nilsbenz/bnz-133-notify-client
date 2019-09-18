@@ -1,5 +1,6 @@
-import {Component, h, Listen} from '@stencil/core';
+import {Component, Event, EventEmitter, h, Listen, Prop, State} from '@stencil/core';
 import AuthService from '../../services/authService';
+import {RouterHistory} from '@stencil/router';
 
 @Component({
   tag: 'nfy-login',
@@ -7,6 +8,12 @@ import AuthService from '../../services/authService';
   shadow: true
 })
 export class Login {
+
+  @Prop() history: RouterHistory;
+
+  @State() alert: boolean;
+
+  @Event() loggedIn: EventEmitter;
 
   private authService: AuthService;
   private user: {
@@ -24,22 +31,32 @@ export class Login {
 
   render() {
     return (
-      <nfy-container class='container'>
-        <nfy-typography variant='h1'>Login</nfy-typography>
-        <div class='form'>
-          <form>
-            <nfy-textfield name='username' label='Benutzername'/>
-            <nfy-textfield name='password' label='Passwort' type='password'/>
-            <nfy-button type='submit' variant='contained' color='primary' onClick={() => this.handleLogin()}>Einloggen</nfy-button>
-          </form>
-        </div>
-      </nfy-container>
+      <div class='container'>
+        <nfy-header nav={false}/>
+        <nfy-container class='main'>
+          <div class='flex'>
+            <nfy-typography variant='h1' class='margin-right-2'>Login</nfy-typography>
+            <stencil-route-link url='/register'>
+              <nfy-button>Zum ersten Mal hier?</nfy-button>
+            </stencil-route-link>
+          </div>
+          <div class='form'>
+            <form>
+              <nfy-textfield name='username' label='Benutzername'/>
+              <nfy-textfield name='password' label='Passwort' type='password'/>
+              <nfy-button type='submit' variant='contained' color='primary' onClick={() => this.handleLogin()}>Einloggen
+              </nfy-button>
+            </form>
+            {this.alert && <nfy-typography>Falscher Benutzername oder Passwort.</nfy-typography>}
+          </div>
+        </nfy-container>
+      </div>
     );
   }
 
   @Listen('handleInput')
   handleInput(e: CustomEvent) {
-    switch(e.detail.name) {
+    switch (e.detail.name) {
       case 'username':
         this.user.username = e.detail.value;
         break;
@@ -51,6 +68,11 @@ export class Login {
 
   async handleLogin() {
     const res = await this.authService.login(this.user);
-    console.log(res);
+    if (res) {
+      this.loggedIn.emit();
+      this.history.push('/');
+    } else {
+      this.alert = true;
+    }
   }
 }
