@@ -1,0 +1,26 @@
+.item {
+  background-color: var(--paper);
+  padding: var(--spacing-1) var(--spacing-2);
+  margin-bottom: var(--spacing-1);
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  display: inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  margin: var(--spacing-1) var(--spacing-0-5);
+  cursor: pointer;
+}

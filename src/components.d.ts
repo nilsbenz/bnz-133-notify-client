@@ -21,9 +21,14 @@ export namespace Components {
   interface NfyHeader {
     'nav': boolean;
   }
-  interface NfyHome {}
+  interface NfyHome {
+    'alert': boolean;
+  }
   interface NfyLogin {
     'history': RouterHistory;
+  }
+  interface NfyNotesList {
+    'notes': any[];
   }
   interface NfyRegister {
     'history': RouterHistory;
@@ -83,6 +88,12 @@ declare global {
     new (): HTMLNfyLoginElement;
   };
 
+  interface HTMLNfyNotesListElement extends Components.NfyNotesList, HTMLStencilElement {}
+  var HTMLNfyNotesListElement: {
+    prototype: HTMLNfyNotesListElement;
+    new (): HTMLNfyNotesListElement;
+  };
+
   interface HTMLNfyRegisterElement extends Components.NfyRegister, HTMLStencilElement {}
   var HTMLNfyRegisterElement: {
     prototype: HTMLNfyRegisterElement;
@@ -119,6 +130,7 @@ declare global {
     'nfy-header': HTMLNfyHeaderElement;
     'nfy-home': HTMLNfyHomeElement;
     'nfy-login': HTMLNfyLoginElement;
+    'nfy-notes-list': HTMLNfyNotesListElement;
     'nfy-register': HTMLNfyRegisterElement;
     'nfy-root': HTMLNfyRootElement;
     'nfy-textarea': HTMLNfyTextareaElement;
@@ -139,10 +151,17 @@ declare namespace LocalJSX {
     'nav'?: boolean;
     'onLoggedOut'?: (event: CustomEvent<any>) => void;
   }
-  interface NfyHome extends JSXBase.HTMLAttributes<HTMLNfyHomeElement> {}
+  interface NfyHome extends JSXBase.HTMLAttributes<HTMLNfyHomeElement> {
+    'alert'?: boolean;
+  }
   interface NfyLogin extends JSXBase.HTMLAttributes<HTMLNfyLoginElement> {
     'history'?: RouterHistory;
     'onLoggedIn'?: (event: CustomEvent<any>) => void;
+  }
+  interface NfyNotesList extends JSXBase.HTMLAttributes<HTMLNfyNotesListElement> {
+    'notes'?: any[];
+    'onDeleteNote'?: (event: CustomEvent<any>) => void;
+    'onUpdateNote'?: (event: CustomEvent<any>) => void;
   }
   interface NfyRegister extends JSXBase.HTMLAttributes<HTMLNfyRegisterElement> {
     'history'?: RouterHistory;
@@ -172,6 +191,7 @@ declare namespace LocalJSX {
     'nfy-header': NfyHeader;
     'nfy-home': NfyHome;
     'nfy-login': NfyLogin;
+    'nfy-notes-list': NfyNotesList;
     'nfy-register': NfyRegister;
     'nfy-root': NfyRoot;
     'nfy-textarea': NfyTextarea;
