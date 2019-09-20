@@ -17,6 +17,9 @@ export namespace Components {
     'variant': 'text' | 'outlined' | 'contained' | undefined;
   }
   interface NfyContainer {}
+  interface NfyFileCard {
+    'file': any;
+  }
   interface NfyFiles {}
   interface NfyHeader {
     'nav': boolean;
@@ -62,6 +65,12 @@ declare global {
   var HTMLNfyContainerElement: {
     prototype: HTMLNfyContainerElement;
     new (): HTMLNfyContainerElement;
+  };
+
+  interface HTMLNfyFileCardElement extends Components.NfyFileCard, HTMLStencilElement {}
+  var HTMLNfyFileCardElement: {
+    prototype: HTMLNfyFileCardElement;
+    new (): HTMLNfyFileCardElement;
   };
 
   interface HTMLNfyFilesElement extends Components.NfyFiles, HTMLStencilElement {}
@@ -126,6 +135,7 @@ declare global {
   interface HTMLElementTagNameMap {
     'nfy-button': HTMLNfyButtonElement;
     'nfy-container': HTMLNfyContainerElement;
+    'nfy-file-card': HTMLNfyFileCardElement;
     'nfy-files': HTMLNfyFilesElement;
     'nfy-header': HTMLNfyHeaderElement;
     'nfy-home': HTMLNfyHomeElement;
@@ -146,6 +156,10 @@ declare namespace LocalJSX {
     'variant'?: 'text' | 'outlined' | 'contained' | undefined;
   }
   interface NfyContainer extends JSXBase.HTMLAttributes<HTMLNfyContainerElement> {}
+  interface NfyFileCard extends JSXBase.HTMLAttributes<HTMLNfyFileCardElement> {
+    'file'?: any;
+    'onDeleteFile'?: (event: CustomEvent<any>) => void;
+  }
   interface NfyFiles extends JSXBase.HTMLAttributes<HTMLNfyFilesElement> {}
   interface NfyHeader extends JSXBase.HTMLAttributes<HTMLNfyHeaderElement> {
     'nav'?: boolean;
@@ -187,6 +201,7 @@ declare namespace LocalJSX {
   interface IntrinsicElements {
     'nfy-button': NfyButton;
     'nfy-container': NfyContainer;
+    'nfy-file-card': NfyFileCard;
     'nfy-files': NfyFiles;
     'nfy-header': NfyHeader;
     'nfy-home': NfyHome;

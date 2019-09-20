@@ -1,0 +1,39 @@
+.files-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.drop-area {
+  width: 252px;
+  height: 168px;
+  background-color: var(--secondary-background);
+  color: var(--secondary-contrast);
+  padding: var(--spacing-2);
+}
+
+.drop-area-content {
+  height: calc(100% - 40px);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-items: center;
+  word-break: break-all;
+  border: 4px dashed var(--secondary-contrast);
+  border-radius: var(--spacing-0-5);
+  padding: var(--spacing-2);
+}
+
+nfy-file-card, .drop-area {
+  margin: var(--spacing-1);
+}
+
+img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.hover {
+  background-color: var(--secondary);
+}

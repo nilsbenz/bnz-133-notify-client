@@ -44,8 +44,8 @@ export class Register {
             <form>
               <nfy-textfield name='username' label='Benutzername'/>
               <nfy-textfield name='password' label='Passwort' type='password'/>
-              <nfy-button type='submit' variant='contained' color='primary'
-                          onClick={() => this.handleRegister()}>Registrieren
+              <nfy-button type='submit' variant='contained' color='secondary' onClick={() => this.handleRegister()}>
+                Registrieren
               </nfy-button>
             </form>
             {this.alert && <nfy-typography>Dieser Benutzername ist bereits vergeben.</nfy-typography>}

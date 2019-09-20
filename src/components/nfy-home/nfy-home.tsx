@@ -41,7 +41,9 @@ export class Home {
                       placeholder='Hier Text eingeben'
                       value={this.newNoteContent}/>
             <div class='align-center'>
-              <nfy-button onClick={() => this.handleSubmit()} variant='contained' color='primary'>Speichern</nfy-button>
+              <nfy-button onClick={() => this.handleSubmit()} variant='contained' color='secondary'>
+                Speichern
+              </nfy-button>
               {this.updatedNoteId && <nfy-button onClick={() => this.handleAbort()}>Abbrechen</nfy-button>}
               {this.alert && <nfy-typography class='alert'>Bitte alle Felder ausfüllen.</nfy-typography>}
             </div>

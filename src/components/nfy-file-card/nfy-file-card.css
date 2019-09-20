@@ -1,0 +1,25 @@
+.card {
+  width: 252px;
+  height: 168px;
+  background-color: var(--paper);
+  color: var(--paper-contrast);
+  padding: var(--spacing-2);
+  display: grid;
+  grid-template-rows: 1fr auto;
+  align-items: center;
+  justify-items: center;
+  word-break: break-word;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+img {
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 var(--spacing-2);
+  cursor: pointer;
+}
