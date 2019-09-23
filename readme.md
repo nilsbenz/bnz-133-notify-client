@@ -1,4 +1,4 @@
-# TBZ M133 | Notify Backend
+# TBZ M133 | Notify Client
 
 This is a project we realized for module 133. It contains a client project realized with StencilJS.
 
@@ -10,6 +10,6 @@ install dependencies
 
 start the client
 
-## `npm test`
+## `caddy`
 
-test the client
+start a reverse proxy on localhost:3030.
