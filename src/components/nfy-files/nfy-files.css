@@ -6,7 +6,7 @@
 .drop-area {
   width: 252px;
   height: 168px;
-  background-color: var(--secondary-background);
+  background-color: var(--primary-background);
   color: var(--secondary-contrast);
   padding: var(--spacing-2);
 }
@@ -35,5 +35,5 @@ img {
 }
 
 .hover {
-  background-color: var(--secondary);
+  background-color: var(--primary);
 }

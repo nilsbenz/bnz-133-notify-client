@@ -150,51 +150,51 @@ declare global {
 }
 
 declare namespace LocalJSX {
-  interface NfyButton extends JSXBase.HTMLAttributes<HTMLNfyButtonElement> {
+  interface NfyButton {
     'color'?: 'default' | 'primary' | 'secondary' | undefined;
     'type'?: 'button' | 'submit' | undefined;
     'variant'?: 'text' | 'outlined' | 'contained' | undefined;
   }
-  interface NfyContainer extends JSXBase.HTMLAttributes<HTMLNfyContainerElement> {}
-  interface NfyFileCard extends JSXBase.HTMLAttributes<HTMLNfyFileCardElement> {
+  interface NfyContainer {}
+  interface NfyFileCard {
     'file'?: any;
     'onDeleteFile'?: (event: CustomEvent<any>) => void;
   }
-  interface NfyFiles extends JSXBase.HTMLAttributes<HTMLNfyFilesElement> {}
-  interface NfyHeader extends JSXBase.HTMLAttributes<HTMLNfyHeaderElement> {
+  interface NfyFiles {}
+  interface NfyHeader {
     'nav'?: boolean;
     'onLoggedOut'?: (event: CustomEvent<any>) => void;
   }
-  interface NfyHome extends JSXBase.HTMLAttributes<HTMLNfyHomeElement> {
+  interface NfyHome {
     'alert'?: boolean;
   }
-  interface NfyLogin extends JSXBase.HTMLAttributes<HTMLNfyLoginElement> {
+  interface NfyLogin {
     'history'?: RouterHistory;
     'onLoggedIn'?: (event: CustomEvent<any>) => void;
   }
-  interface NfyNotesList extends JSXBase.HTMLAttributes<HTMLNfyNotesListElement> {
+  interface NfyNotesList {
     'notes'?: any[];
     'onDeleteNote'?: (event: CustomEvent<any>) => void;
     'onUpdateNote'?: (event: CustomEvent<any>) => void;
   }
-  interface NfyRegister extends JSXBase.HTMLAttributes<HTMLNfyRegisterElement> {
+  interface NfyRegister {
     'history'?: RouterHistory;
     'onLoggedIn'?: (event: CustomEvent<any>) => void;
   }
-  interface NfyRoot extends JSXBase.HTMLAttributes<HTMLNfyRootElement> {}
-  interface NfyTextarea extends JSXBase.HTMLAttributes<HTMLNfyTextareaElement> {
+  interface NfyRoot {}
+  interface NfyTextarea {
     'name'?: string;
     'onHandleInput'?: (event: CustomEvent<any>) => void;
     'value'?: string;
   }
-  interface NfyTextfield extends JSXBase.HTMLAttributes<HTMLNfyTextfieldElement> {
+  interface NfyTextfield {
     'label'?: string;
     'name'?: string;
     'onHandleInput'?: (event: CustomEvent<any>) => void;
     'type'?: 'text' | 'password' | 'email' | undefined;
     'value'?: string;
   }
-  interface NfyTypography extends JSXBase.HTMLAttributes<HTMLNfyTypographyElement> {
+  interface NfyTypography {
     'variant'?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | undefined;
   }
 
@@ -220,7 +220,21 @@ export { LocalJSX as JSX };
 
 declare module "@stencil/core" {
   export namespace JSX {
-    interface IntrinsicElements extends LocalJSX.IntrinsicElements {}
+    interface IntrinsicElements {
+      'nfy-button': LocalJSX.NfyButton & JSXBase.HTMLAttributes<HTMLNfyButtonElement>;
+      'nfy-container': LocalJSX.NfyContainer & JSXBase.HTMLAttributes<HTMLNfyContainerElement>;
+      'nfy-file-card': LocalJSX.NfyFileCard & JSXBase.HTMLAttributes<HTMLNfyFileCardElement>;
+      'nfy-files': LocalJSX.NfyFiles & JSXBase.HTMLAttributes<HTMLNfyFilesElement>;
+      'nfy-header': LocalJSX.NfyHeader & JSXBase.HTMLAttributes<HTMLNfyHeaderElement>;
+      'nfy-home': LocalJSX.NfyHome & JSXBase.HTMLAttributes<HTMLNfyHomeElement>;
+      'nfy-login': LocalJSX.NfyLogin & JSXBase.HTMLAttributes<HTMLNfyLoginElement>;
+      'nfy-notes-list': LocalJSX.NfyNotesList & JSXBase.HTMLAttributes<HTMLNfyNotesListElement>;
+      'nfy-register': LocalJSX.NfyRegister & JSXBase.HTMLAttributes<HTMLNfyRegisterElement>;
+      'nfy-root': LocalJSX.NfyRoot & JSXBase.HTMLAttributes<HTMLNfyRootElement>;
+      'nfy-textarea': LocalJSX.NfyTextarea & JSXBase.HTMLAttributes<HTMLNfyTextareaElement>;
+      'nfy-textfield': LocalJSX.NfyTextfield & JSXBase.HTMLAttributes<HTMLNfyTextfieldElement>;
+      'nfy-typography': LocalJSX.NfyTypography & JSXBase.HTMLAttributes<HTMLNfyTypographyElement>;
+    }
   }
 }
 

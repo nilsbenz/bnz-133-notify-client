@@ -44,7 +44,7 @@ export class Login {
             <form>
               <nfy-textfield name='username' label='Benutzername'/>
               <nfy-textfield name='password' label='Passwort' type='password'/>
-              <nfy-button type='submit' variant='contained' color='secondary' onClick={() => this.handleLogin()}>
+              <nfy-button type='submit' variant='contained' color='primary' onClick={() => this.handleLogin()}>
                 Einloggen
               </nfy-button>
             </form>
@@ -64,6 +64,13 @@ export class Login {
       case 'password':
         this.user.password = e.detail.value;
         break;
+    }
+  }
+
+  @Listen('keydown', { capture: true })
+  handleKeyDown(ev: KeyboardEvent){
+    if (ev.key === 'Enter' && this.user.username && this.user.password){
+      this.handleLogin();
     }
   }
 

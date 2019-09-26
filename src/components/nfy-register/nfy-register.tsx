@@ -44,7 +44,7 @@ export class Register {
             <form>
               <nfy-textfield name='username' label='Benutzername'/>
               <nfy-textfield name='password' label='Passwort' type='password'/>
-              <nfy-button type='submit' variant='contained' color='secondary' onClick={() => this.handleRegister()}>
+              <nfy-button type='submit' variant='contained' color='primary' onClick={() => this.handleRegister()}>
                 Registrieren
               </nfy-button>
             </form>
@@ -64,6 +64,13 @@ export class Register {
       case 'password':
         this.user.password = e.detail.value;
         break;
+    }
+  }
+
+  @Listen('keydown', { capture: true })
+  handleKeyDown(ev: KeyboardEvent){
+    if (ev.key === 'Enter' && this.user.username && this.user.password){
+      this.handleRegister();
     }
   }
 
