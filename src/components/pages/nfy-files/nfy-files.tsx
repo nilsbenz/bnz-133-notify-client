@@ -1,4 +1,4 @@
-import {Component, h, Listen, State} from '@stencil/core';
+import {Component, h, Listen, Prop, State} from '@stencil/core';
 import FilesService from '../../../services/filesService';
 
 @Component({
@@ -10,6 +10,8 @@ export class Files {
 
   @State() file: any;
   @State() files: any[];
+
+  @Prop() darkMode: boolean;
 
   fileInput!: HTMLDivElement;
 
@@ -33,12 +35,12 @@ export class Files {
               <nfy-typography variant='h4'>Dokument ablegen</nfy-typography>
               <label>
                 <input type="file" value={this.file} onInput={e => this.handleFileInput(e)} hidden required/>
-                <img src='assets/icon/upload.svg' alt=''/>
+                <img src={`assets/icon/upload-${this.darkMode ? 'light' : 'dark'}.svg`} alt=''/>
               </label>
             </div>
           </div>
           {this.files.map(file =>
-            <nfy-file-card file={file}/>
+            <nfy-file-card file={file} darkMode={this.darkMode}/>
           )}
         </div>
       </nfy-container>

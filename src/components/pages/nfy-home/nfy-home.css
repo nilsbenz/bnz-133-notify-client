@@ -12,7 +12,7 @@ input {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 500;
-  border: 1px solid var(--default);
+  border: 1px solid var(--paper-contrast);
   background: none;
   border-radius: var(--spacing-0-5);
   color: var(--text);
@@ -22,7 +22,7 @@ input {
 }
 
 input::placeholder {
-  color: var(--default);
+  color: var(--text-disabled);
 }
 
 textarea {
@@ -33,7 +33,7 @@ textarea {
   font-family: inherit;
   font-size: 1rem;
   font-weight: 500;
-  border: 1px solid var(--default);
+  border: 1px solid var(--paper-contrast);
   background: none;
   border-radius: var(--spacing-0-5);
   color: var(--text);
@@ -44,7 +44,7 @@ textarea {
 }
 
 textarea::placeholder {
-  color: var(--default);
+  color: var(--text-disabled);
 }
 
 .alert {

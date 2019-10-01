@@ -17,7 +17,7 @@ input {
   height: 32px;
   font-size: 1rem;
   font-weight: 500;
-  border-bottom: 1px solid var(--default);
+  border-bottom: 1px solid var(--text);
   background: none;
   border-radius: 0;
   color: var(--text);
@@ -60,7 +60,7 @@ input:not(:placeholder-shown) + .label {
 
 input:hover ~ .border-hover {
   transform: scaleX(1);
-  background-color: var(--default-dark);
+  background-color: var(--text);
 }
 
 input:focus + .label {

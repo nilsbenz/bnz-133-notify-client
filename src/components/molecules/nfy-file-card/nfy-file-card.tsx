@@ -10,6 +10,8 @@ export class FileCard {
 
   @Prop() file: any;
 
+  @Prop() darkMode: boolean;
+
   @Event() deleteFile: EventEmitter;
 
   private filesService: FilesService;
@@ -23,8 +25,12 @@ export class FileCard {
       <div class='card'>
         <nfy-typography variant='h5'>{this.file.name}</nfy-typography>
         <div class='actions'>
-          <img src='assets/icon/download.svg' alt='' onClick={() => this.download()}/>
-          <img src='assets/icon/trash.svg' alt='' onClick={() => this.deleteFile.emit(this.file._id)}/>
+          <img src={`assets/icon/download-${this.darkMode ? 'light' : 'dark'}.svg`}
+               alt=''
+               onClick={() => this.download()}/>
+          <img src={`assets/icon/trash-${this.darkMode ? 'light' : 'dark'}.svg`}
+               alt=''
+               onClick={() => this.deleteFile.emit(this.file._id)}/>
         </div>
       </div>
     );

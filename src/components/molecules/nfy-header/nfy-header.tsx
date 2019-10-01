@@ -9,7 +9,10 @@ export class Header {
 
   @Prop() nav: boolean = true;
 
+  @Prop() darkMode: boolean;
+
   @Event() loggedOut: EventEmitter;
+  @Event() toggleDarkMode: EventEmitter;
 
   render() {
     if (this.nav) {
@@ -28,7 +31,10 @@ export class Header {
                 <button>Dokumente</button>
               </stencil-route-link>
             </div>
-            <button onClick={() => this.loggedOut.emit()}>Ausloggen</button>
+            <div>
+              <button onClick={() => this.toggleDarkMode.emit()}>{this.darkMode ? 'Light' : 'Dark'} Mode</button>
+              <button onClick={() => this.loggedOut.emit()}>Ausloggen</button>
+            </div>
           </nav>
         </header>
       );

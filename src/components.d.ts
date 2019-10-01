@@ -18,19 +18,25 @@ export namespace Components {
   }
   interface NfyContainer {}
   interface NfyFileCard {
+    'darkMode': boolean;
     'file': any;
   }
-  interface NfyFiles {}
+  interface NfyFiles {
+    'darkMode': boolean;
+  }
   interface NfyHeader {
+    'darkMode': boolean;
     'nav': boolean;
   }
   interface NfyHome {
     'alert': boolean;
+    'darkMode': boolean;
   }
   interface NfyLogin {
     'history': RouterHistory;
   }
   interface NfyNotesList {
+    'darkMode': boolean;
     'notes': any[];
   }
   interface NfyRegister {
@@ -146,22 +152,29 @@ declare namespace LocalJSX {
   }
   interface NfyContainer {}
   interface NfyFileCard {
+    'darkMode'?: boolean;
     'file'?: any;
     'onDeleteFile'?: (event: CustomEvent<any>) => void;
   }
-  interface NfyFiles {}
+  interface NfyFiles {
+    'darkMode'?: boolean;
+  }
   interface NfyHeader {
+    'darkMode'?: boolean;
     'nav'?: boolean;
     'onLoggedOut'?: (event: CustomEvent<any>) => void;
+    'onToggleDarkMode'?: (event: CustomEvent<any>) => void;
   }
   interface NfyHome {
     'alert'?: boolean;
+    'darkMode'?: boolean;
   }
   interface NfyLogin {
     'history'?: RouterHistory;
     'onLoggedIn'?: (event: CustomEvent<any>) => void;
   }
   interface NfyNotesList {
+    'darkMode'?: boolean;
     'notes'?: any[];
     'onDeleteNote'?: (event: CustomEvent<any>) => void;
     'onUpdateNote'?: (event: CustomEvent<any>) => void;

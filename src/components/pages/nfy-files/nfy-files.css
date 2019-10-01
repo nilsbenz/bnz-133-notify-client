@@ -7,7 +7,7 @@
   width: 252px;
   height: 168px;
   background-color: var(--primary-background);
-  color: var(--secondary-contrast);
+  color: var(--text);
   padding: var(--spacing-2);
 }
 
@@ -18,7 +18,7 @@
   align-items: center;
   justify-items: center;
   word-break: break-all;
-  border: 4px dashed var(--secondary-contrast);
+  border: 4px dashed var(--text);
   border-radius: var(--spacing-0-5);
   padding: var(--spacing-2);
 }

@@ -14,6 +14,7 @@ export class Home {
   @State() notes: any[];
 
   @Prop() alert: boolean;
+  @Prop() darkMode: boolean;
 
   private notesService: NotesService;
   private newNoteForm!: HTMLDivElement;
@@ -48,7 +49,7 @@ export class Home {
               {this.alert && <nfy-typography class='alert'>Bitte alle Felder ausfüllen.</nfy-typography>}
             </div>
           </div>
-          <nfy-notes-list notes={this.notes}/>
+          <nfy-notes-list notes={this.notes} darkMode={this.darkMode}/>
         </nfy-container>
       </div>
     );
