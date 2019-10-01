@@ -1,5 +1,5 @@
 import {Component, h, Listen, State} from '@stencil/core';
-import FilesService from '../../services/filesService';
+import FilesService from '../../../services/filesService';
 
 @Component({
   tag: 'nfy-files',

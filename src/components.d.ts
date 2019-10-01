@@ -37,10 +37,6 @@ export namespace Components {
     'history': RouterHistory;
   }
   interface NfyRoot {}
-  interface NfyTextarea {
-    'name': string;
-    'value': string;
-  }
   interface NfyTextfield {
     'label': string;
     'name': string;
@@ -115,12 +111,6 @@ declare global {
     new (): HTMLNfyRootElement;
   };
 
-  interface HTMLNfyTextareaElement extends Components.NfyTextarea, HTMLStencilElement {}
-  var HTMLNfyTextareaElement: {
-    prototype: HTMLNfyTextareaElement;
-    new (): HTMLNfyTextareaElement;
-  };
-
   interface HTMLNfyTextfieldElement extends Components.NfyTextfield, HTMLStencilElement {}
   var HTMLNfyTextfieldElement: {
     prototype: HTMLNfyTextfieldElement;
@@ -143,7 +133,6 @@ declare global {
     'nfy-notes-list': HTMLNfyNotesListElement;
     'nfy-register': HTMLNfyRegisterElement;
     'nfy-root': HTMLNfyRootElement;
-    'nfy-textarea': HTMLNfyTextareaElement;
     'nfy-textfield': HTMLNfyTextfieldElement;
     'nfy-typography': HTMLNfyTypographyElement;
   }
@@ -182,11 +171,6 @@ declare namespace LocalJSX {
     'onLoggedIn'?: (event: CustomEvent<any>) => void;
   }
   interface NfyRoot {}
-  interface NfyTextarea {
-    'name'?: string;
-    'onHandleInput'?: (event: CustomEvent<any>) => void;
-    'value'?: string;
-  }
   interface NfyTextfield {
     'label'?: string;
     'name'?: string;
@@ -209,7 +193,6 @@ declare namespace LocalJSX {
     'nfy-notes-list': NfyNotesList;
     'nfy-register': NfyRegister;
     'nfy-root': NfyRoot;
-    'nfy-textarea': NfyTextarea;
     'nfy-textfield': NfyTextfield;
     'nfy-typography': NfyTypography;
   }
@@ -231,7 +214,6 @@ declare module "@stencil/core" {
       'nfy-notes-list': LocalJSX.NfyNotesList & JSXBase.HTMLAttributes<HTMLNfyNotesListElement>;
       'nfy-register': LocalJSX.NfyRegister & JSXBase.HTMLAttributes<HTMLNfyRegisterElement>;
       'nfy-root': LocalJSX.NfyRoot & JSXBase.HTMLAttributes<HTMLNfyRootElement>;
-      'nfy-textarea': LocalJSX.NfyTextarea & JSXBase.HTMLAttributes<HTMLNfyTextareaElement>;
       'nfy-textfield': LocalJSX.NfyTextfield & JSXBase.HTMLAttributes<HTMLNfyTextfieldElement>;
       'nfy-typography': LocalJSX.NfyTypography & JSXBase.HTMLAttributes<HTMLNfyTypographyElement>;
     }

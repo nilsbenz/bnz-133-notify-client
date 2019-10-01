@@ -1,5 +1,5 @@
 import {Component, h, Listen, Prop, State} from '@stencil/core';
-import NotesService from '../../services/notesService';
+import NotesService from '../../../services/notesService';
 
 @Component({
   tag: 'nfy-home',

@@ -1,5 +1,5 @@
 import {Component, Event, EventEmitter, h, Prop} from '@stencil/core';
-import FilesService from '../../services/filesService';
+import FilesService from '../../../services/filesService';
 
 @Component({
   tag: 'nfy-file-card',

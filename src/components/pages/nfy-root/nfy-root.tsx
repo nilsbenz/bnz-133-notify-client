@@ -1,5 +1,5 @@
 import {Component, h, Listen, State} from '@stencil/core';
-import AuthService from '../../services/authService';
+import AuthService from '../../../services/authService';
 
 const PrivateRoute = ({component, loggedIn, ...props}: { [key: string]: any }) => {
   const Component = component;

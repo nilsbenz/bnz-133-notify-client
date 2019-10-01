@@ -1,5 +1,5 @@
 import {Component, Event, EventEmitter, h, Listen, Prop, State} from '@stencil/core';
-import AuthService from '../../services/authService';
+import AuthService from '../../../services/authService';
 import {RouterHistory} from '@stencil/router';
 
 @Component({
