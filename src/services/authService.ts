@@ -1,7 +1,9 @@
 import {fetchWithToken} from '../util/fetch';
+import CryptoJS from "crypto-js";
 
 class AuthService {
   async register(user) {
+    user.password = this.encryptPassword(user.password);
     const res = await fetch('/api/auth/register', {
       method: 'POST',
       body: JSON.stringify(user),
@@ -11,12 +13,15 @@ class AuthService {
     });
     const json = await res.json();
     if (json.success === true) {
-      return await this.login(user);
+      return await this.login(user, true);
     }
     return false;
   }
 
-  async login(user) {
+  async login(user, alreadyEncrypted?) {
+    if (!alreadyEncrypted) {
+      user.password = this.encryptPassword(user.password);
+    }
     const res = await fetch('/api/auth/login', {
       method: 'POST',
       body: JSON.stringify(user),
@@ -46,6 +51,10 @@ class AuthService {
     const res = await fetchWithToken('/api/myself');
     const user = await res.json();
     return user.success;
+  }
+
+  encryptPassword(password: string): string {
+    return CryptoJS.MD5(password).toString();
   }
 }
 
